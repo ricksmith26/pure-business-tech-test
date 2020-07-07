@@ -1,0 +1,10 @@
+<input
+	#textInput
+	[attr.maxLength]="maxLimit"
+	[autocomplete]="autocomplete"
+	[type]="type"
+	[name]="name"
+	(blur)="onClickOutside()"
+	[value]="value"
+	(input)="onChange($event)"
+	[placeholder]="placeholder"/>

@@ -1,0 +1,19 @@
+@import '../../../assets/styles/colors.scss';
+
+.btn {
+    background: $green-gradient;
+    padding-left: 42px;
+    padding-right: 42px;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Josefin Sans';
+    font-size: 20px;
+    font-weight: 600;
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+    cursor: pointer;
+}

@@ -1,0 +1,121 @@
+
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/fonts.scss';
+
+.home {
+    margin-left: -8px;  
+    margin-right: -8px; 
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $purple-gradient-B; 
+    opacity: 0.5;
+    z-index: 2;
+}
+.main-img-con {
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.main-con {
+
+}
+
+.text-area {
+    margin-left: 324px;
+    margin-right: 324px;
+    position: absolute;
+    top: 224px
+}
+
+.light-title-big {
+    color: white;
+    font-size: $large-title;
+    font-family: $font-fam;
+    width: 800px;
+}
+.light-title-med {
+    color: white;
+    font-size: $small-title;
+    font-family: $font-fam;
+}
+
+.light-title-small {
+    color: white;
+    font-size: $small-title;
+    font-family: $font-fam;
+    width: 800px;
+    margin-top: -12px;
+}
+
+.light-text-small-centered {
+    margin-top: 24px;
+    margin-left: 62px;
+    margin-right: 62px;
+    display: flex;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Sans';
+    color: white;
+}
+
+.eligible-card {
+    width: 600px;
+    height:max-content;
+    border-radius: 16px;
+    background: $purple-gradient;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.checks-container {
+    margin-left: 96px;
+    margin-right: 96px;
+    margin-top: 24px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 800;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.check {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.check-text {
+    width: 80%;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+.tc-con {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.tc-text {
+    color: white;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-left: 4px;
+}
