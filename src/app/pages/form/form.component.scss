@@ -1,5 +1,56 @@
+
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/fonts.scss';
+
 .form {
     margin-left: -8px;  
     margin-right: -8px; 
-    margin-top: -8px; 
+    margin-top: -8px;
+    position: relative;   
+    height: 100vh;
+    z-index: 0;
+}
+
+.page-center {
+    width: 100%;
+    position: absolute;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.purple-title {
+    color: $purple-gradient-A;
+    font-family: $font-fam;
+    font-size: 54px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.blue-title-bold {
+    color: $blue;
+    font-size: 30px;
+    font-family: $font-fam;
+    font-weight: 600;
+}
+
+.purple-title-bold {
+    color: $purple-gradient-A;
+    font-size: 30px;
+    font-family: $font-fam;
+    font-weight: 600;
+}
+
+.flex-row-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 500px;
 }
