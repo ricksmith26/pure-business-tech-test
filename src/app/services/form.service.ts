@@ -86,7 +86,7 @@
 // 			} else {
 // 				const controlErrors: ValidationErrors = control.errors;
 // 				if (controlErrors !== null && (!control.pristine || checkPristine) && control.enabled) {
-// 					Object.keys(controlErrors).forEach(errorName => {
+// 					Object.keys(controlErrors).forEach(errorName => {gi
 // 						this.setErrors(key, errorName);
 // 					});
 // 				}
