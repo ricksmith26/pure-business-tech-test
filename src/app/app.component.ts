@@ -7,9 +7,11 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	title = 'tech-test';
 
-	constructor(
-		private route: ActivatedRoute,
-	) { }
+	public Window = window;
+	constructor(private router: Router) {
+		router.events.subscribe((val) => {
+			this.Window = window;
+		});
+	}
 }

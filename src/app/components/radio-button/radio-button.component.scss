@@ -1,9 +1,14 @@
+
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/fonts.scss';
+
 .control {
     font-family: arial;
     display: block;
     position: relative;
-    padding-left: 35px;
+    // padding-left: 64px;
     margin-bottom: 8px;
+    margin-right: 12px;
     padding-top: 3px;
     cursor: pointer;
     font-size: 16px;
@@ -18,7 +23,7 @@
     top: 2px;
     left: 0;
     height: 30px;
-    width: 35px;
+    // width: 64px;
     background: #f3eff3;
     border: 0px solid #000000;
     border-radius: 4px;
@@ -29,14 +34,14 @@
 }
 
 .control input:checked ~ .control_indicator {
-    background: #963487;
+    background: #F3EFF3;
 }
 .control:hover input:not([disabled]):checked ~ .control_indicator,
 .control input:checked:focus ~ .control_indicator {
     // background: #0e6647d;
 }
 .control input:disabled ~ .control_indicator {
-    background: #e6e6e6;
+    background: #F3EFF3;
     opacity: 0.6;
     pointer-events: none;
 }
@@ -45,18 +50,20 @@
     content: '';
     position: absolute;
     display: none;
+    z-index: 1;
 }
 .control input:checked ~ .control_indicator:after {
     display: block;
 }
 .control-checkbox .control_indicator:after {
-    left: 13px;
-    top: 3px;
+    left: 26px;
+    top: 50%;
     width: 8px;
     height: 16px;
-    border: solid #ffffff;
+    border: solid #963487;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
+    z-index: 9;
 }
 .control-checkbox input:disabled ~ .control_indicator:after {
     border-color: #7b7b7b;
@@ -110,3 +117,36 @@
 .control-checkbox input:checked + .control_indicator::before {
     animation-name: s-ripple-dup;
 }
+.control-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+.label {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-top: 16px;
+    background-color: #f3eff3;
+    border-radius: 8px;
+    color: $blue;
+    font-family: $font-fam;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+

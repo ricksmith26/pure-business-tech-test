@@ -7,13 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-	@Input() public showBtn: string;
+	@Input() public showBtn: boolean;
 	@Input() public text: string;
 
 	constructor() { }
 
 	ngOnInit(): void {
-		console.log(this.showBtn, '<<<', typeof(this.showBtn))
 	}
 
 }

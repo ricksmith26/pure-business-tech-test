@@ -1,20 +1,117 @@
 <div class="form" >
-<app-navbar img='assets/icons/claim.png' imgHeight="116" showBtn='false'></app-navbar>
     <div class="page-center">
         <div class="purple-title">Start your claim now</div>
         <div class="purple-title">it takes just 3 minutes</div>
         <div class="blue-title-bold" [style.marginTop.px]="12">You will need to know your address,</div>
-        <div class="blue-title-bold">a few basic mortgage anf financial details.</div>
-        <!-- <div class="flex-row-icons">
-            <div><img src="assets/icons/"></div>
-            <p>2</p>
-            <p>3</p>
-        </div> -->
-        <div class="purple-title-bold" [style.marginTop.px]="36">Tell us about yourself</div>
-        <!-- <div [formControl]="remortgageForm">
+        <div class="blue-title-bold">a few basic mortgage and financial details.</div>
+		<div class="purple-title-bold" [style.marginTop.px]="36">Tell us about yourself</div>
+		<div class="form-section">
+			<div class="labels">
+				<div class="form-label">
+					Title*
+				</div>
+				<div class="form-label">
+					Full name*
+				</div>
+				<div class="form-label">
+					Date of Birth*
+				</div>
+				<div class="form-label">
+					Prefered contact*
+				</div>
+				<div class="form-label">
+					Marital Status*
+				</div>
+				<div class="form-label">
+					Address Line 1*
+				</div>
+				<div class="form-label">
+					Address Line 2*
+				</div>
+				<div class="form-label">
+					Address Line 3*
+				</div>
+				<div class="form-label">
+					Post Code
+				</div>
+				<div class="form-label" [ngStyle]="{'margin-top': '-2px'}">
+					Is your current address the
+					property you’re claiming for?
+				</div>
+				<div class="form-label">
+					Is this a joint claim?*
+				</div>
+				<div class="form-label">
+					Was the mortgage on
+					the house you lived in?*
+				</div>
+				<div class="form-label">
+					Did the mortgage begin after the
+					31st of October 2004?*
+				</div>
+				<div class="form-label">
+					Were the mortgage
+					payments interest only?*
+				</div>
+				<div class="form-label">
+					I agree to the Terms
+					and Conditions*
+				</div>
+				
+			</div>
+			<form [formGroup]="remortgageForm" class="form-fields">
+				<div class="field-container">
+					<app-radio-button [options]="['Mr', 'Mrs', 'Miss', 'Ms', 'Other']" (buttonEmitter)="updateForm($event, control.title)"></app-radio-button>
+				</div>
+				<div  class="field-container">
+					<app-text-input  [control]="remortgageForm.get(control.full_name)"></app-text-input>
+				</div>
+				<div class="field-container">
+					<app-date-picker  [control]="remortgageForm.get(control.date_of_birth)"></app-date-picker>
+				</div>
+				<div class="field-container">
+					<app-radio-button [options]="['Phone', 'Email', 'Post']" (buttonEmitter)="updateForm($event, control.preferred_contact)"></app-radio-button>
+				</div>
+				<div class="field-container">
+					<app-radio-button [options]="['Single', 'Married', 'Divorced', 'Other']" (buttonEmitter)="updateForm($event, control.marital_status)"></app-radio-button>
+				</div>
+				<div  class="field-container">
+					<app-text-input [control]="remortgageForm.get(control.address_line_1)"></app-text-input>
+				</div>
+				<div  class="field-container">
+					<app-text-input  [control]="remortgageForm.get(control.address_line_2)"></app-text-input>
+				</div>
+				<div  class="field-container">
+					<app-text-input  [control]="remortgageForm.get(control.address_line_3)"></app-text-input>
+				</div>
+				<div  class="field-container">
+					<app-text-input  [control]="remortgageForm.get(control.post_code)"></app-text-input>
+				</div>
+				<div class="field-container">
+					<app-radio-button [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.current_address_confirmation)"></app-radio-button>
+				</div>
+				<div class="field-container">
+					<app-radio-button [control]="remortgageForm.get(control.joint_claim)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.joint_claim)"></app-radio-button>
+				</div>
+				<div class="field-container">
+					<app-radio-button [control]="remortgageForm.get(control.current_address_confirmation)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.lived_in_confirmation)"></app-radio-button>
+				</div>
+				<div class="field-container">
+					<app-radio-button [control]="remortgageForm.get(control.pre_oct_2004)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.pre_oct_2004)"></app-radio-button>
+				</div>
+				<div class="field-container">
+					<app-radio-button [control]="remortgageForm.get(control.interest_only)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.interest_only)"></app-radio-button>
+				</div>
+				<div class="field-container">
+					<app-radio-button [control]="remortgageForm.get(control.agree_tnc)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.agree_tnc)"></app-radio-button>
+				</div> 
+			</form>
+		</div>
+		<div class="submit-btn">
+			<app-button [showBtn]='true' text="Are you entitled?" (click)="getData()"></app-button>
+		</div>
 
-        </div>
-         -->
-
-    </div>
+        
+		
+	</div>
 </div>

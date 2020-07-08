@@ -6,21 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormComponent } from './pages/form/form.component';
-import { TextInputComponent } from './components/text-input/text-input.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
-// import {FormService} from './services/form.service';
+import { RadioButtonComponent } from './components/radio-button/radio-button.component';
+import { TextInputComponent } from './components/text-input/text-input.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		HomeComponent,
 		FormComponent,
-		TextInputComponent,
 		NavbarComponent,
 		ButtonComponent,
-		CheckboxComponent,
+		RadioButtonComponent,
+		TextInputComponent,
+		DatePickerComponent,
 	],
 	imports: [
 		BrowserModule,

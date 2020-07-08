@@ -1,0 +1,9 @@
+
+
+<div class="control-group">
+    <label class="control control-checkbox" fxFlex="40%" *ngFor="let option of options;" [ngStyle]="{'width': 320 / options.length + 'px'}">
+			<div class="label"><div>{{option}}</div></div>
+            <input type="radio" [checked]="selected === option" (click)="onChange(option)" [value]="option" [name]="option"/>
+        <div class="control_indicator"></div>
+    </label>   
+</div>
