@@ -1,4 +1,4 @@
-import { Component, Provider, Input, forwardRef, EventEmitter, Output, OnInit} from '@angular/core';
+import { Component, Provider, Input, forwardRef, EventEmitter, Output, OnInit } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 export const RADIO_BUTTON_LIST_ACCESSOR: Provider = {
@@ -24,7 +24,6 @@ export class RadioButtonComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
-		console.log(this.control)
 	}
 
 	public onChange(val: string): void {
@@ -40,18 +39,18 @@ export class RadioButtonComponent implements OnInit {
 		this.onChange(this.selected);
 	}
 
-	private writeValue(val: string): void  {
+	private writeValue(val: string): void {
 		this.selected = val;
 	}
 
-	private registerOnChange(fn: any): void  {
+	private registerOnChange(fn: any): void {
 		this.onChange = fn;
 	}
 
-	private registerOnTouched(fn: any): void{}
+	private registerOnTouched(fn: any): void { }
 
-	private setDisabledState?(): void  {
-		
+	private setDisabledState?(): void {
+
 	}
 
 }

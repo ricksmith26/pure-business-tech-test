@@ -62,48 +62,63 @@
 			<form [formGroup]="remortgageForm" class="form-fields">
 				<div class="field-container">
 					<app-radio-button [options]="['Mr', 'Mrs', 'Miss', 'Ms', 'Other']" (buttonEmitter)="updateForm($event, control.title)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.title)}}</div>
 				</div>
 				<div  class="field-container">
 					<app-text-input  [control]="remortgageForm.get(control.full_name)"></app-text-input>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.full_name)}}</div>
 				</div>
 				<div class="field-container">
 					<app-date-picker  [control]="remortgageForm.get(control.date_of_birth)"></app-date-picker>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.date_of_birth)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [options]="['Phone', 'Email', 'Post']" (buttonEmitter)="updateForm($event, control.preferred_contact)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.preferred_contact)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [options]="['Single', 'Married', 'Divorced', 'Other']" (buttonEmitter)="updateForm($event, control.marital_status)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.marital_status)}}</div>
 				</div>
 				<div  class="field-container">
 					<app-text-input [control]="remortgageForm.get(control.address_line_1)"></app-text-input>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.address_line_1)}}</div>
 				</div>
 				<div  class="field-container">
 					<app-text-input  [control]="remortgageForm.get(control.address_line_2)"></app-text-input>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.address_line_2)}}</div>
 				</div>
 				<div  class="field-container">
 					<app-text-input  [control]="remortgageForm.get(control.address_line_3)"></app-text-input>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.address_line_3)}}</div>
 				</div>
 				<div  class="field-container">
 					<app-text-input  [control]="remortgageForm.get(control.post_code)"></app-text-input>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.post_code)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.current_address_confirmation)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.current_address_confirmation)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [control]="remortgageForm.get(control.joint_claim)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.joint_claim)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.joint_claim)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [control]="remortgageForm.get(control.current_address_confirmation)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.lived_in_confirmation)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.current_address_confirmation)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [control]="remortgageForm.get(control.pre_oct_2004)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.pre_oct_2004)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.pre_oct_2004)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [control]="remortgageForm.get(control.interest_only)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.interest_only)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.interest_only)}}</div>
 				</div>
 				<div class="field-container">
 					<app-radio-button [control]="remortgageForm.get(control.agree_tnc)" [options]="['Yes', 'No']" (buttonEmitter)="updateForm($event, control.agree_tnc)"></app-radio-button>
+					<div class="errors" *ngIf="errorPresent">{{getErrorsMsg(control.agree_tnc)}}</div>
 				</div> 
 			</form>
 		</div>

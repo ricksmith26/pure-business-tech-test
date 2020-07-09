@@ -11,6 +11,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ApiService } from './services/api.service';
 
 @NgModule({
 	declarations: [
@@ -27,6 +28,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 		BrowserModule,
 		AppRoutingModule,
 		ReactiveFormsModule,
+		// ApiService
 		// FormService
 	],
 	providers: [],

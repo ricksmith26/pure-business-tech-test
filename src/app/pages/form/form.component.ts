@@ -1,6 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormService } from 'src/app/services/form.service';
+import * as moment from 'moment';
+import axios from 'axios';
+const url = 'https://link.puretechnologysystems.com/ptsl-task/api/claimyour/new';
+const smokeURl = 'https://link.puretechnologysystems.com/ptsl-task/api/claimyour/smoke';
 
 enum Control {
 	title = 'title',
@@ -42,6 +46,7 @@ export class FormComponent implements OnInit {
 		this.buildForm();
 		setTimeout(() => {
 			this.cdr.detectChanges();
+			// axios.get(smokeURl);
 		}, 300);
 
 	}
@@ -50,7 +55,7 @@ export class FormComponent implements OnInit {
 		this.remortgageForm = this.formBuilder.group({
 			[this.control.title]: new FormControl('', [Validators.required]),
 			[this.control.full_name]: new FormControl('', [Validators.required]),
-			[this.control.date_of_birth]: new FormControl('', [Validators.required]),
+			[this.control.date_of_birth]: new FormControl('', [Validators.required, this.checkDate]),
 			[this.control.preferred_contact]: new FormControl('', [Validators.required]),
 			[this.control.marital_status]: new FormControl('', [Validators.required]),
 			[this.control.address_line_1]: new FormControl('', [Validators.required]),
@@ -60,13 +65,13 @@ export class FormComponent implements OnInit {
 			[this.control.current_address_confirmation]: new FormControl('', [Validators.required]),
 			[this.control.joint_claim]: new FormControl('', [Validators.required]),
 			[this.control.lived_in_confirmation]: new FormControl('', [Validators.required]),
-			[this.control.pre_oct_2004]: new FormControl('', [Validators.required]),
-			[this.control.interest_only]: new FormControl('', [Validators.required]),
-			[this.control.agree_tnc]: new FormControl('', [Validators.required]),
+			[this.control.pre_oct_2004]: new FormControl('', [Validators.required, this.checkMortgageStart]),
+			[this.control.interest_only]: new FormControl('', [Validators.required, this.checkInterestOnly]),
+			[this.control.agree_tnc]: new FormControl('', [Validators.required, this.checkTnC]),
 		});
 	}
 
-	public getData() {
+	public getData(): void {
 
 		const errors = {
 			title: this.getErrors(this.remortgageForm.get(Control.title)),
@@ -86,8 +91,8 @@ export class FormComponent implements OnInit {
 			agree_tnc: this.getErrors(this.remortgageForm.get(Control.agree_tnc)),
 		};
 		if (this.errorPresent) {
-			console.log(errors)
-			// return;
+			this.errors = errors;
+			return;
 		}
 
 		const body = {
@@ -107,11 +112,26 @@ export class FormComponent implements OnInit {
 			interest_only: this.remortgageForm.get(Control.interest_only).value,
 			agree_tnc: this.remortgageForm.get(Control.agree_tnc).value,
 		};
-		console.log(body,'BOD<<<')
+		this.submitForm(body);
 	}
 
 	public updateForm(event, control): void {
 		this.remortgageForm.get(control).setValue(event);
+	}
+
+	public getErrorsMsg(name: string): string {
+		if (this.errors[name] === undefined || this.errors[name] === null) { return null; }
+		const msg = this.errors[name].reduce((acc, val) => {
+			acc += (val.split('_').join(' ') + ', ');
+			return acc;
+		}, []);
+
+		return msg;
+	}
+
+	public async submitForm(data: any) {
+		const result = axios.post(url, data);
+		return result;
 	}
 
 	private getErrors(control) {
@@ -123,4 +143,44 @@ export class FormComponent implements OnInit {
 		}
 	}
 
+	private checkDate(control: AbstractControl): { [key: string]: boolean } {
+		let result: ValidationErrors = null;
+		const maxAge = moment().subtract(74, 'years');
+		const custAge = moment(control.value);
+		moment(custAge).isBefore(maxAge) ? result = { applicant_must_be_under_75: true} : result = null;
+		return result;
+	}
+
+	private checkInterestOnly(control: AbstractControl): { [key: string]: boolean } {
+		let result: ValidationErrors = null;
+		if (control.value === 'No') {
+			result = { mortgage_must_interest_only: true};
+			return result;
+		} else {
+			result = null;
+			return result;
+		}
+	}
+
+	private checkMortgageStart(control: AbstractControl): { [key: string]: boolean } {
+		let result: ValidationErrors = null;
+		if (control.value === 'Yes') {
+			result = { mortgage_must_not_be_taken_out_before_2004: true };
+			return result;
+		} else {
+			result = null;
+			return result;
+		}
+	}
+
+	private checkTnC(control: AbstractControl): { [key: string]: boolean } {
+		let result: ValidationErrors = null;
+		if (control.value === 'Yes') {
+			result = null;
+			return result;
+		} else {
+			result = { agree_to_terms_and_conditions: true };
+			return result;
+		}
+	}
 }

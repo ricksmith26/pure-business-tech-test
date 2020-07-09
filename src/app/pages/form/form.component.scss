@@ -64,6 +64,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
+    position: relative;
 }
 
 .name-container {
@@ -130,4 +131,12 @@
 }
 .css-input:focus {
     outline:none;
+}
+
+.errors {
+    color: red;
+    font-size: small;
+    position: absolute;
+    bottom: -20px;
+    font-family: $font-fam;
 }
